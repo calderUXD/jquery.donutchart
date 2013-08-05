@@ -3,11 +3,12 @@
   var defaultsettings = {
     'bgColor' : 'transparent',
     'fgColor' : 'red',
-    'size' : 160,
+    'size' : 150,
     'donutwidth': 10,
     'textsize': 32,
     'barBg': '#ccc',
-    'barFg': 'red'
+    'barFg': 'red',
+    'animateSpeed': 30
   }
   
   var methods = {
@@ -23,7 +24,7 @@
         if (options["size"] && !options["donutwidth"])
           this.donutchartsettings["donutwidth"]=options["size"]/4;
         if (options["size"] && !options["textsize"])
-          this.donutchartsettings["textsize"]=options["size"]/10;
+          this.donutchartsettings["textsize"]=options["size"]/3;
       }
       else
       {
@@ -36,7 +37,7 @@
       if (initcanvas)
       {
         $(this).css("position","relative");
-        $(this).html("<canvas class='donut'></canvas><div class='percent'><div class='p-inner'></div><div class='p-text'></div></div>");
+        $(this).html("<canvas width='"+this.donutchartsettings.size+"' height='"+this.donutchartsettings.size+"'></canvas><div class='percent'><div class='p-inner'></div><div class='p-text' style='font-size:"+this.donutchartsettings.textsize+"px;'></div></div>");
       
         var canvas = $("canvas",this).get(0);
       
@@ -104,7 +105,7 @@
               clearInterval(animationID);
           }
       
-          var animationID = setInterval(animateDonutChart,5); 
+          var animationID = setInterval(animateDonutChart,20); 
         }
       }
     })

@@ -1,12 +1,12 @@
-.chart{
-	height:150px;
-	width:150px;
-}
+
+
+.chart.small{width:100px; height:100px;}
+.chart.large{width:150px; height:150px;}
+
 
 /* Control font style inside donut */
 .percent{
 	border-radius: 1000px;
-	font-size:50px;
 	font-weight:bold;
 	position: absolute;
 	display: inline-block;

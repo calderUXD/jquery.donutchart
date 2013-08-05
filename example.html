@@ -16,14 +16,17 @@
 
 		<br>
 
-		<div id="donutchart1" class="chart" data-percent="79.9"></div>
+		<div id="donutchart1" class="chart small" data-percent="79.9"></div>
+
+		<div id="donutchart2" class="chart large" data-percent="25"></div>
 
 	
 
 
 		<script>
 
-		$(".chart").donutchart({'size': 150, 'fgColor': '#14b9d6', 'donutwidth': 50 });
+		$(".chart.small").donutchart({'size': 100, 'fgColor': '#14b9d6', 'donutwidth': 50});
+		$(".chart.large").donutchart({'size': 150, 'fgColor': '#14b9d6', 'donutwidth': 50});
 		$(".chart").donutchart("animate");
 
 
