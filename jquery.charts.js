@@ -1,11 +1,13 @@
 (function($) {
 
   var defaultsettings = {
-    'bgColor' : '#ccc',
+    'bgColor' : 'transparent',
     'fgColor' : 'red',
     'size' : 160,
-    'donutwidth': 40,
-    'textsize': 16,
+    'donutwidth': 10,
+    'textsize': 32,
+    'barBg': '#ccc',
+    'barFg': 'red'
   }
   
   var methods = {
@@ -34,9 +36,7 @@
       if (initcanvas)
       {
         $(this).css("position","relative");
-        $(this).css("width",this.donutchartsettings.size+"px");
-        $(this).css("height",this.donutchartsettings.size+"px");
-        $(this).html("<canvas width='"+this.donutchartsettings.size+"' height='"+this.donutchartsettings.size+"'></canvas><div style='position:absolute;top:0;left:0;line-height:"+this.donutchartsettings.size+"px;text-align:center;width:"+this.donutchartsettings.size+"px;font-family:Arial,sans-serif;font-size:"+this.donutchartsettings.textsize+"px;font-weight:bold;'></div>");
+        $(this).html("<canvas class='donut'></canvas><div class='percent'><div class='p-inner'></div><div class='p-text'></div></div>");
       
         var canvas = $("canvas",this).get(0);
       
@@ -71,6 +71,7 @@
       this.arc(settings.size/2,settings.size/2,settings.size/2-settings.donutwidth,endAngle,startAngle,true);
       this.fill();
     },
+
   };
   
   $.fn.donutchart = function(method) {
@@ -83,7 +84,7 @@
         
         var percentage = $(this).attr("data-percent");
         var canvas = $(this).children("canvas").get(0);
-        var percenttext = $(this).children("div");
+        var percenttext = $(this).find("div.p-text");
         var dcs = this.donutchartsettings;
 
         if (canvas.getContext)
@@ -97,13 +98,13 @@
 
             methods.drawBg.call(ctx,dcs);
             methods.drawFg.apply(ctx,[dcs,j]);
-            percenttext.text(j+"%");
+            percenttext.text(j);
 
             if (j >= percentage)
               clearInterval(animationID);
           }
       
-          var animationID = setInterval(animateDonutChart,20); 
+          var animationID = setInterval(animateDonutChart,5); 
         }
       }
     })

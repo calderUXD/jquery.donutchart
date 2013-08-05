@@ -1,36 +1,35 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="jquery.donutchart.js"></script>
-    
-  <!--[if lte IE 8]>
-    <script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
-  <![endif]-->
-</head>
+	<head>
 
-<body>
+		<link href="css/style.css" media="all" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="jquery.charts.js"></script>
 
-<div id="donutchart1" data-percent="50"></div>
-<div id="donutchart2" data-percent="65"></div>
-<div id="donutchart3" data-percent="85"></div>
+		<!--[if lte IE 8]>
+		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+		<![endif]-->
 
-<button onclick="startAnimate()">Animate me</button>
+	</head>
 
+	<body>
 
-<script>
-$("#donutchart1").donutchart({'size': 150 });
-$("#donutchart1").donutchart("animate");
+		<br>
 
-$("#donutchart2").donutchart({'size': 200, 'fgColor': 'blue' });
-$("#donutchart2").donutchart("animate");
+		<div id="donutchart1" class="chart" data-percent="79.9"></div>
 
-$("#donutchart3").donutchart({'size': 300, 'fgColor': 'green' });
+	
 
 
-function startAnimate() { $("#donutchart3").donutchart("animate"); }
+		<script>
+
+		$(".chart").donutchart({'size': 150, 'fgColor': '#14b9d6', 'donutwidth': 50 });
+		$(".chart").donutchart("animate");
 
 
-</script>
-</body>
+		function startAnimate() { $("#donutchart3").donutchart("animate"); }
+
+
+		</script>
+	</body>
 </html>
